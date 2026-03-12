@@ -332,10 +332,10 @@ footer { background: #1a1a1a; color: #888; padding: 3rem 2rem 1.5rem; }
     </div>
     <div class="shop-tabs reveal">
       <button class="tab-btn active" onclick="filterProducts('all',this)">Все товары</button>
-      <button class="tab-btn" onclick="filterProducts('privileges',this)">🏆 Привилегии</button>
+      <button class="tab-btn" onclick="filterProducts('privileges',this)">👑 Привилегии</button>
       <button class="tab-btn" onclick="filterProducts('cases',this)">📦 Кейсы</button>
-      <button class="tab-btn" onclick="filterProducts('cosmetics',this)">✨ Косметика</button>
-      <button class="tab-btn" onclick="filterProducts('subscriptions',this)">⭐ Подписки</button>
+      <button class="tab-btn" onclick="filterProducts('currency',this)">🪙 Валюта</button>
+      <button class="tab-btn" onclick="filterProducts('other',this)">⚡ Другое</button>
     </div>
     <div class="products-grid" id="productsGrid"></div>
   </div>
@@ -445,7 +445,7 @@ footer { background: #1a1a1a; color: #888; padding: 3rem 2rem 1.5rem; }
   </div>
   <div class="footer-bottom">
     <div class="footer-copy">© 2026 NELL GRIEF. Не связан с Mojang Studios.</div>
-    <div style="font-size:0.8rem;color:#555">mc.nellgrief.fun</div>
+    <div style="font-size:0.8rem;color:#555">Design and Development by <a href="https://t.me/CBYKP" target="_blank" style="color:var(--orange);text-decoration:none">t.me/CBYKP</a></div>
   </div>
 </footer>
 
@@ -469,14 +469,27 @@ for (let i = 0; i < 14; i++) {
 
 // PRODUCTS
 const products = [
-  { id:1, cat:'privileges', name:'VIP', icon:'👑', bg:'linear-gradient(135deg,#fff8f0,#ffe8cc)', badge:'SALE', badgeClass:'badge-sale', desc:'Базовый донат-ранг с расширенными возможностями', features:['Префикс [VIP] в чате','Доступ к /fly','5 слотов дома','Цветной ник'], price:'199', oldPrice:'299', currency:'₽', cat_label:'Привилегия' },
-  { id:2, cat:'privileges', name:'PREMIUM', icon:'💎', bg:'linear-gradient(135deg,#f0f8ff,#cce8ff)', badge:'POPULAR', badgeClass:'badge-new', desc:'Продвинутый ранг для серьёзных игроков', features:['Всё из VIP','Доступ к /speed','10 слотов дома','Кастомный плащ'], price:'399', oldPrice:null, currency:'₽', cat_label:'Привилегия' },
-  { id:3, cat:'privileges', name:'LEGEND', icon:'🔥', bg:'linear-gradient(135deg,#fff0f0,#ffd0cc)', badge:'RARE', badgeClass:'badge-rare', desc:'Элитный статус с максимальными привилегиями', features:['Всё из PREMIUM','Частный регион','Своя команда','Бета-тесты'], price:'799', oldPrice:'999', currency:'₽', cat_label:'Привилегия' },
-  { id:4, cat:'cases', name:'Стартовый кейс', icon:'📦', bg:'linear-gradient(135deg,#f0fff4,#ccf0d8)', badge:null, badgeClass:'', desc:'Идеальный старт для новых игроков', features:['1-3 случайных предмета','Шанс редких ресурсов','Бонусный опыт'], price:'49', oldPrice:null, currency:'₽', cat_label:'Кейс' },
-  { id:5, cat:'cases', name:'Элитный кейс', icon:'🎁', bg:'linear-gradient(135deg,#fff8f0,#ffe0b2)', badge:'SALE', badgeClass:'badge-sale', desc:'Гарантированный редкий предмет внутри', features:['3-7 предметов','Гарантия редкого','Шанс на легендарку'], price:'149', oldPrice:'199', currency:'₽', cat_label:'Кейс' },
-  { id:6, cat:'cosmetics', name:'Частицы', icon:'✨', bg:'linear-gradient(135deg,#f8f0ff,#e8ccff)', badge:'NEW', badgeClass:'badge-new', desc:'Красивые эффекты частиц вокруг персонажа', features:['10 видов эффектов','Анимация при ходьбе','Свечение'], price:'99', oldPrice:null, currency:'₽', cat_label:'Косметика' },
-  { id:7, cat:'subscriptions', name:'Подписка PRO', icon:'⭐', bg:'linear-gradient(135deg,#fffdf0,#fff3cc)', badge:'POPULAR', badgeClass:'badge-new', desc:'Месячная подписка с ежедневными бонусами', features:['Ежедневные монеты','Двойной опыт х2','VIP-зоны','Приоритетный вход'], price:'299', oldPrice:null, currency:'₽/мес', cat_label:'Подписка' },
-  { id:8, cat:'subscriptions', name:'Подписка ULTRA', icon:'🌟', bg:'linear-gradient(135deg,#fff0f8,#ffd0ee)', badge:'RARE', badgeClass:'badge-rare', desc:'Максимум бонусов каждый день', features:['Всё из PRO','Тройной опыт х3','Эксклюзивные скины','Личный куратор'], price:'599', oldPrice:'799', currency:'₽/мес', cat_label:'Подписка' },
+  // ── ПРИВІЛЕГІЇ ──────────────────────────────────────────────
+  { id:1,  cat:'privileges', name:'ADMIN',    icon:'🧀', bg:'linear-gradient(135deg,#fff8f0,#ffe8cc)', badge:'SALE', badgeClass:'badge-sale', desc:'Максимальные права на сервере + 20к рилликов', features:['Префикс [ADMIN] в чате','Все команды сервера','+20 000 рилликов','Приоритетный вход'], price:'2079', oldPrice:'2666', currency:'₽', cat_label:'Привилегия' },
+  { id:2,  cat:'privileges', name:'D.ADMIN',  icon:'🧑‍🚀', bg:'linear-gradient(135deg,#fff0f8,#ffd0ee)', badge:'SALE', badgeClass:'badge-sale', desc:'Донат-Admin с расширенными правами + 15к рилликов', features:['Префикс [D.ADMIN]','Расширенные команды','+15 000 рилликов','VIP-зоны'], price:'1560', oldPrice:'2000', currency:'₽', cat_label:'Привилегия' },
+  { id:3,  cat:'privileges', name:'UNIVERSAL',icon:'🦸', bg:'linear-gradient(135deg,#f0f5ff,#ccd8ff)', badge:'SALE', badgeClass:'badge-sale', desc:'Универсальный ранг + 8к рилликов', features:['Префикс [UNIVERSAL]','Доступ к /fly','+8 000 рилликов','Цветной ник'], price:'692', oldPrice:'888', currency:'₽', cat_label:'Привилегия' },
+  { id:4,  cat:'privileges', name:'NELL',     icon:'🧙', bg:'linear-gradient(135deg,#f0fff8,#ccf0e0)', badge:'SALE', badgeClass:'badge-sale', desc:'Ранг NELL + 10к рилликов', features:['Префикс [NELL]','Доступ к /speed','+10 000 рилликов','Кастомный плащ'], price:'580', oldPrice:'744', currency:'₽', cat_label:'Привилегия' },
+  { id:5,  cat:'privileges', name:'PEGAS',    icon:'🦅', bg:'linear-gradient(135deg,#fff8f0,#ffeacc)', badge:'SALE', badgeClass:'badge-sale', desc:'Ранг PEGAS + 10к рилликов', features:['Префикс [PEGAS]','Особые эффекты','+10 000 рилликов','Приоритетный вход'], price:'519', oldPrice:'666', currency:'₽', cat_label:'Привилегия' },
+  { id:6,  cat:'privileges', name:'VAMPIRE',  icon:'🧛', bg:'linear-gradient(135deg,#1a0010,#3d0020)', badge:'SALE', badgeClass:'badge-sale', desc:'Тёмный ранг VAMPIRE + 6к рилликов', features:['Префикс [VAMPIRE]','Ночное зрение','+6 000 рилликов','Частицы крови'], price:'467', oldPrice:'599', currency:'₽', cat_label:'Привилегия' },
+  { id:7,  cat:'privileges', name:'GOD',      icon:'👴', bg:'linear-gradient(135deg,#fffff0,#fffacc)', badge:'SALE', badgeClass:'badge-sale', desc:'Божественный ранг GOD + 8к рилликов', features:['Префикс [GOD]','Бессмертие в лобби','+8 000 рилликов','Золотые частицы'], price:'442', oldPrice:'567', currency:'₽', cat_label:'Привилегия' },
+  { id:8,  cat:'privileges', name:'COBRA',    icon:'🐍', bg:'linear-gradient(135deg,#f0fff0,#ccf0cc)', badge:'SALE', badgeClass:'badge-sale', desc:'Ранг COBRA + 8к рилликов', features:['Префикс [COBRA]','Яд-эффекты','+8 000 рилликов','Зелёные частицы'], price:'389', oldPrice:'499', currency:'₽', cat_label:'Привилегия' },
+  { id:9,  cat:'privileges', name:'SPLINTER', icon:'❄️', bg:'linear-gradient(135deg,#f0f8ff,#cce8ff)', badge:'SALE', badgeClass:'badge-sale', desc:'Ледяной ранг SPLINTER + 6к рилликов', features:['Префикс [SPLINTER]','Ледяные эффекты','+6 000 рилликов','Снежные частицы'], price:'346', oldPrice:'444', currency:'₽', cat_label:'Привилегия' },
+  { id:10, cat:'privileges', name:'D.HELPER', icon:'🎀', bg:'linear-gradient(135deg,#fff0f5,#ffd0e0)', badge:'SALE', badgeClass:'badge-sale', desc:'Помощник сервера + 6к рилликов', features:['Префикс [D.HELPER]','Доп. слоты дома','+6 000 рилликов','Розовые частицы'], price:'264', oldPrice:'339', currency:'₽', cat_label:'Привилегия' },
+  { id:11, cat:'privileges', name:'D.MODER',  icon:'👑', bg:'linear-gradient(135deg,#fffff0,#fff8cc)', badge:'SALE', badgeClass:'badge-sale', desc:'Донат-Модератор + 10000 рилликов', features:['Префикс [D.MODER]','Модераторские команды','+10 000 рилликов','Золотой плащ'], price:'1042', oldPrice:'1337', currency:'₽', cat_label:'Привилегия' },
+  // ── КЕЙСИ ───────────────────────────────────────────────────
+  { id:12, cat:'cases', name:'ЛЕГЕНДАРНЫЙ КЕЙС Х3', icon:'📦', bg:'linear-gradient(135deg,#fff8e8,#ffeaaa)', badge:'SALE', badgeClass:'badge-sale', desc:'3 легендарных кейса с редкими предметами', features:['3 легендарных кейса','Гарантия редкого предмета','Шанс на легендарку','Бонусные риллики'], price:'117', oldPrice:'150', currency:'₽', cat_label:'Кейс' },
+  { id:13, cat:'cases', name:'КЕЙСЫ С РИЛЛИКАМИ Х3', icon:'🎁', bg:'linear-gradient(135deg,#fff3e0,#ffe0b2)', badge:'SALE', badgeClass:'badge-sale', desc:'3 кейса с рилликами внутри', features:['3 кейса с рилликами','Гарантированные риллики','Бонусный шанс х2'], price:'69', oldPrice:'89', currency:'₽', cat_label:'Кейс' },
+  // ── ВАЛЮТА ──────────────────────────────────────────────────
+  { id:14, cat:'currency', name:'РИЛЛИКИ Х100', icon:'🪙', bg:'linear-gradient(135deg,#fff8e0,#ffec99)', badge:'SALE', badgeClass:'badge-sale', desc:'100 игровых рилликов на счёт', features:['100 рилликов мгновенно','Тратить в игровом магазине'], price:'2', oldPrice:'3', currency:'₽', cat_label:'Валюта' },
+  // ── ІНШЕ ────────────────────────────────────────────────────
+  { id:15, cat:'other', name:'РАЗБАН',   icon:'🔓', bg:'linear-gradient(135deg,#fff8e8,#ffe8aa)', badge:'SALE', badgeClass:'badge-sale', desc:'Снятие бана с вашего аккаунта', features:['Моментальный разбан','Без вопросов','Один аккаунт'], price:'88', oldPrice:'113', currency:'₽', cat_label:'Услуга' },
+  { id:16, cat:'other', name:'РАЗМУТ',   icon:'🔊', bg:'linear-gradient(135deg,#fff8e8,#ffe8aa)', badge:'SALE', badgeClass:'badge-sale', desc:'Снятие мута с вашего аккаунта', features:['Моментальный размут','Без вопросов','Один аккаунт'], price:'38', oldPrice:'49', currency:'₽', cat_label:'Услуга' },
+  { id:17, cat:'other', name:'НАБОР PVP',icon:'⚔️', bg:'linear-gradient(135deg,#f5f5f5,#e0e0e0)', badge:'SALE', badgeClass:'badge-sale', desc:'Готовый набор для PVP боёв', features:['Броня и оружие','Зелья для боя','Бонусные риллики'], price:'95', oldPrice:'122', currency:'₽', cat_label:'Набор' },
 ];
 
 function renderProducts(filter) {
@@ -526,6 +539,7 @@ const BACKEND_URL = 'https://raspy-disk-2413.dimahumenyuk-dev.workers.dev';
 const PAYMENT_METHODS = {
   sbp:    { label: '⚡ СБП', desc: 'Оплата по QR-коду' },
   card:   { label: '💳 Банковская карта', desc: 'Visa, MasterCard, МИР' },
+  crypto: { label: '₿ Криптовалюта', desc: 'USDT, BTC и др.' },
   ерип:   { label: '🏦 ЕРИП', desc: 'Беларусь' },
 };
 let selectedProduct = null, selectedMethod = 'sbp';
